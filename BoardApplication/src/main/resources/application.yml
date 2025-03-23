@@ -1,0 +1,22 @@
+server:
+  port: 9090  # 8080 대신 9090으로 변경
+  servlet:
+    context-path: /api  # 기본 경로 변경 (예: localhost:9090/api)
+spring:
+  profiles:
+    active: dev  # 개발용 프로파일 사용
+    
+  datasource:
+    url: jdbc:h2:mem:testdb  # H2 인메모리 DB 사용 (실제 서비스에서는 MySQL, PostgreSQL 등 사용)
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update  # 애플리케이션 시작 시 자동 테이블 생성
+    show-sql: true  # SQL 로그 출력
+    properties:
+      hibernate:
+        format_sql: true  # SQL 포맷 정리
