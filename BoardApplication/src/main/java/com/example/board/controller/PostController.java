@@ -18,7 +18,7 @@ import com.example.board.service.PostService;
 
 @RestController
 @RequestMapping("/posts")
-@CrossOrigin(origins = "http://localhost:5173") // React 개발 서버 허용
+@CrossOrigin(origins = "http://localhost:5173") // React 개발 서버 허용 (CORS 해결)
 public class PostController {
 
 	private final PostService postService;
