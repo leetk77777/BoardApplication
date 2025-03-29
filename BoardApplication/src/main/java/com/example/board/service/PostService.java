@@ -26,7 +26,7 @@ public class PostService {
     }
 
     @Transactional
-    public Post createPost(Post post) {
+    public Post createPost(Post post) throws Exception {
         return postRepository.save(post);
     }
 
@@ -37,6 +37,17 @@ public class PostService {
         post.setContent(postDetails.getContent());
         return post;
     }
+    
+    // 게시글 수정 : 다른 방법
+//    public Post updatePost(Long id, Post updatedPost) {
+//        return postRepository.findById(id)
+//            .map(post -> {
+//                post.setTitle(updatedPost.getTitle());
+//                post.setContent(updatedPost.getContent());
+//                return postRepository.save(post);
+//            })
+//            .orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
+//    }
 
     @Transactional
     public void deletePost(Long id) {

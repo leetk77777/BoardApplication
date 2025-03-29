@@ -38,8 +38,8 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<Post> createPost(@RequestBody Post post) {
-        return ResponseEntity.ok(postService.createPost(post));
+    public ResponseEntity<Post> createPost(@RequestBody Post post) throws Exception {
+         return ResponseEntity.ok(postService.createPost(post));
     }
 
     @PutMapping("/{id}")
