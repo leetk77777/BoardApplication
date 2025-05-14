@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.board.aop.LogExecutionTime;
 import com.example.board.entity.Post;
 import com.example.board.service.PostService;
 
@@ -31,6 +32,7 @@ public class PostController {
     }
 
     @GetMapping
+    @LogExecutionTime
     public ResponseEntity<Page<Post>> getAllPosts(@RequestParam(defaultValue = "0") int page,
     	    										@RequestParam(defaultValue = "5") int size) {
     	Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
